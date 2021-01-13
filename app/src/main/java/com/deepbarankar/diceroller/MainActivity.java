@@ -15,13 +15,18 @@ public class MainActivity extends AppCompatActivity {
 
     private int score = 0;
     boolean player1 = true;
+    int player1Score = 0;
+    int player2Score = 0;
+    private final int MAX_SCORE = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button roll = (Button) findViewById(R.id.rollButton);
+        final Button roll = (Button) findViewById(R.id.rollButton);
+        final Button reset = (Button) findViewById(R.id.resetButton);
+
         roll.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -31,26 +36,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button reset = (Button) findViewById(R.id.resetButton);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                score = 0;
-
-                Toast.makeText(getApplicationContext(), "Dices and score is reset", Toast.LENGTH_LONG).show();
-
-                player1 = true;
-                TextView score1 = (TextView) findViewById(R.id.score1);
-                score1.setText(String.valueOf(score));
-                TextView score2 = (TextView) findViewById(R.id.score2);
-                score2.setText(String.valueOf(score));
-                setDices("dice1", "dice1");
-                scoreUpdate();
+                resetClicked();
             }
         });
     }
 
     private void rollClicked() {
+        if(player1Score >= MAX_SCORE || player2Score >= MAX_SCORE) return;
+
         int rand1 = 1 + (int) (Math.random() * 6);
         int rand2 = 1 + (int) (Math.random() * 6);
         String d1 = "dice1";
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
              */
 
-            Toast.makeText(getApplicationContext(), "Opps! Looks like you got two sixes!!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Oops! Looks like you got two sixes!!!", Toast.LENGTH_LONG).show();
             player1 = !player1;
         }
 
@@ -78,14 +74,38 @@ public class MainActivity extends AppCompatActivity {
 
         if(player1) {
             TextView score1 = (TextView) findViewById(R.id.score1);
-            score1.setText(String.valueOf(score));
+            player1Score += score;
+            score1.setText(String.valueOf(player1Score));
         } else {
             TextView score1 = (TextView) findViewById(R.id.score2);
-            score1.setText(String.valueOf(score));
+            player2Score += score;
+            score1.setText(String.valueOf(player2Score));
+        }
+
+        if(player1Score >= MAX_SCORE || player2Score >= MAX_SCORE) {
+            gameWon();
         }
 
         setDices(d1, d2);
 
+        scoreUpdate();
+    }
+
+    private void resetClicked() {
+        score = 0;
+        player1Score = 0;
+        player2Score = 0;
+
+        Toast.makeText(getApplicationContext(), "Dices and scores are reset", Toast.LENGTH_LONG).show();
+
+        player1 = true;
+
+        TextView score1 = (TextView) findViewById(R.id.score1);
+        score1.setText(String.valueOf(score));
+        TextView score2 = (TextView) findViewById(R.id.score2);
+        score2.setText(String.valueOf(score));
+
+        setDices("dice1", "dice1");
         scoreUpdate();
     }
 
@@ -102,5 +122,21 @@ public class MainActivity extends AppCompatActivity {
         int res2 = getResources().getIdentifier(d2, "drawable", this.getPackageName());
         ImageView dice_2 = (ImageView) findViewById(R.id.dice_2);
         dice_2.setImageResource(res2);
+    }
+
+    private void gameWon() {
+        String p1 = "0";
+        String p2 = "0";
+        score = 0;
+        if(player1) {
+            p1 = "WINNER!!!";
+        } else {
+            p2 = "WINNER!!!";
+        }
+
+        TextView score1 = (TextView) findViewById(R.id.score1);
+        score1.setText(p1);
+        TextView score2 = (TextView) findViewById(R.id.score2);
+        score2.setText(p2);
     }
 }

@@ -5,4 +5,5 @@
     <string name="reset">Reset</string>
     <string name="player1">Player1</string>
     <string name="player2">Player2</string>
+    <string name="winning_score">WINNING SCORE: 500</string>
 </resources>
