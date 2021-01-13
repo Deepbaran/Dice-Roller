@@ -35,40 +35,41 @@
         android:id="@+id/scoreCount"
         android:layout_width="40dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
         android:text="@string/_0"
         android:textAlignment="center"
-        android:gravity="center"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/rollButton"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="25dp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/rollButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/circular_edge_button"
+        android:text="@string/roll"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/resetButton"
-        android:text="@string/roll"
-        android:textAllCaps="false"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/circular_edge_button"/>
+        app:layout_constraintRight_toLeftOf="@id/resetButton" />
 
     <Button
         android:id="@+id/resetButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/circular_edge_button"
+        android:text="@string/reset"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomLine"
         app:layout_constraintLeft_toRightOf="@id/rollButton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/reset"
-        android:textAllCaps="false"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/circular_edge_button"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomLine"
@@ -76,4 +77,51 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="655dp" />
+
+    <TextView
+        android:id="@+id/player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/player1"
+        app:layout_constraintEnd_toStartOf="@+id/score1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/player2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/player2"
+        app:layout_constraintEnd_toStartOf="@+id/score2"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1" />
+
+    <TextView
+        android:id="@+id/score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:text="@string/_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="100dp"
+        android:text="@string/_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

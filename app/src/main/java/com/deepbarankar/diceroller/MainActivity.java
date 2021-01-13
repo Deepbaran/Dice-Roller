@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private int score = 0;
+    boolean player1 = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Dices and score is reset", Toast.LENGTH_LONG).show();
 
+                player1 = true;
+                TextView score1 = (TextView) findViewById(R.id.score1);
+                score1.setText(String.valueOf(score));
+                TextView score2 = (TextView) findViewById(R.id.score2);
+                score2.setText(String.valueOf(score));
                 setDices("dice1", "dice1");
                 scoreUpdate();
             }
@@ -61,12 +67,21 @@ public class MainActivity extends AppCompatActivity {
              */
 
             Toast.makeText(getApplicationContext(), "Opps! Looks like you got two sixes!!!", Toast.LENGTH_LONG).show();
+            player1 = !player1;
         }
 
         else {
             score += rand1 + rand2;
             d1 = "dice" + rand1;
             d2 = "dice" + rand2;
+        }
+
+        if(player1) {
+            TextView score1 = (TextView) findViewById(R.id.score1);
+            score1.setText(String.valueOf(score));
+        } else {
+            TextView score1 = (TextView) findViewById(R.id.score2);
+            score1.setText(String.valueOf(score));
         }
 
         setDices(d1, d2);
