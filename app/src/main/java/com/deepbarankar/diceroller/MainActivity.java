@@ -116,10 +116,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDices(String d1, String d2) {
         int res1 = getResources().getIdentifier(d1, "drawable", this.getPackageName());
+        Log.d(String.valueOf(res1), "first dice");
         ImageView dice_1 = (ImageView) findViewById(R.id.dice_1);
         dice_1.setImageResource(res1);
 
         int res2 = getResources().getIdentifier(d2, "drawable", this.getPackageName());
+        Log.d(String.valueOf(res1), "second dice");
         ImageView dice_2 = (ImageView) findViewById(R.id.dice_2);
         dice_2.setImageResource(res2);
     }

@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="501dp" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <TextView
         android:id="@+id/scoreCount"
@@ -47,28 +47,24 @@
 
     <Button
         android:id="@+id/rollButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/circular_edge_button"
         android:text="@string/roll"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/resetButton" />
+        app:layout_constraintRight_toLeftOf="@id/midline" />
 
     <Button
         android:id="@+id/resetButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/circular_edge_button"
         android:text="@string/reset"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomLine"
-        app:layout_constraintLeft_toRightOf="@id/rollButton"
+        app:layout_constraintLeft_toRightOf="@id/midline"
         app:layout_constraintRight_toRightOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -76,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="655dp" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <TextView
         android:id="@+id/player1"
@@ -128,12 +124,19 @@
         android:id="@+id/maxScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:text="@string/winning_score"
         android:textColor="@color/design_default_color_secondary"
         android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/scoreCount"
-        android:layout_marginBottom="25dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
