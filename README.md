@@ -11,12 +11,28 @@ A simple dice roller application created in Android Studio using Java. Created u
 
 ## Game Rules:
 
-One player will first roll the dices and the total of the numbers appearing on the dices will be added to the total score of the first player until the two sixes appear on the dices. Two sixes will give 0 points and the second player's turn will come. The second player will do the same as the first player. And this will go on until one of the players get a total of 500 points.
-Click the reset button to start the game again.
+- ### Two Players will play this game and initialy both will have zero points.
+- ### The winning score is 500 and the player that reaches 500, will win the game.
 
 ![](./drawables/1.jpg)
+
+- ### First player will click on the Roll button and the dices will be rolled.
+- ### First Player will get equal to the sum of points that the dices are showing.
+
 ![](./drawables/2.jpg)
+
+- ### Getting two sixes in anyone's turn will automatically change players.
+
 ![](./drawables/3.jpg)
+
+- ### If Player1 got two sixes, then now it's Player2's turn.
+
 ![](./drawables/4.jpg)
+
+- ### When one player reaches 500, that player wins.
+
 ![](./drawables/5.jpg)
+
+- ### To reset the game, simply press on the Reset button.
+
 ![](./drawables/6.jpg)
